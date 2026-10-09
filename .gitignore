@@ -1,0 +1,15 @@
+# Go build output
+/holiday-tinder
+/app
+*.exe
+*.test
+*.out
+
+# Local env
+.env
+.env.*
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/

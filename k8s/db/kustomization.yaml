@@ -1,0 +1,26 @@
+# CloudNativePG operator + a one-instance Postgres cluster, applied in wave -2
+# so the app-db-app Secret exists before the app (wave 0) starts.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.27/releases/cnpg-1.27.4.yaml
+  - cluster.yaml
+
+patches:
+  - target:
+      kind: Deployment
+      name: cnpg-controller-manager
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/resources
+        value:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+
+commonAnnotations:
+  basable.com/apply-wave: "-2"

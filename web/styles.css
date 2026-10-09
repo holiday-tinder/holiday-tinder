@@ -1,0 +1,51 @@
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+:root{--bg:#14111f;--panel:#1f1a2e;--field:#2a2440;--text:#f5f3ff;--muted:#a59fbf;--accent:#ff4f7b;--accent2:#7c5cff;--green:#00aa6c;--radius:20px}
+html,body{height:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:radial-gradient(120% 80% at 50% 0%,#2a1f4a 0%,var(--bg) 60%) fixed;color:var(--text);min-height:100dvh;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit}
+.screen{max-width:480px;margin:0 auto;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom))}
+.muted{color:var(--muted)}
+
+/* Home */
+#home{display:flex;flex-direction:column;gap:16px}
+.hero{text-align:center;padding:20px 8px 4px}
+.logo{font-size:56px;filter:drop-shadow(0 6px 20px rgba(124,92,255,.6))}
+h1{font-size:2.3rem;letter-spacing:-.02em;background:linear-gradient(90deg,#ff4f7b,#ffb36b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);margin-top:8px;line-height:1.45}
+.panel{background:var(--panel);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:14px;border:1px solid rgba(255,255,255,.06)}
+label{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:var(--muted);font-weight:600}
+input,select{font:inherit;font-size:16px;color:var(--text);background:var(--field);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 14px;outline:none;width:100%}
+input:focus,select:focus{border-color:var(--accent2)}
+.code-input{text-transform:uppercase;letter-spacing:.3em;font-weight:700}
+fieldset{border:0;padding:0;min-width:0}
+legend{font-size:.85rem;color:var(--muted);font-weight:600;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{flex-direction:row;position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none;width:1px}
+.chip span{display:inline-block;padding:10px 14px;border-radius:999px;background:var(--field);color:var(--text);font-weight:600;border:1px solid transparent;cursor:pointer;transition:.15s}
+.chip input:checked+span{background:rgba(255,79,123,.15);border-color:var(--accent)}
+.btn{font-weight:700;border:0;border-radius:14px;padding:14px;cursor:pointer;font-size:1rem}
+.btn.primary{background:linear-gradient(90deg,#ff4f7b,#ff7a59);color:#fff;box-shadow:0 8px 24px rgba(255,79,123,.35)}
+.btn.secondary{background:var(--field);border:1px solid rgba(255,255,255,.12)}
+.btn:active{transform:scale(.98)}
+.divider{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.85rem}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.1)}
+.error{color:#ff8a9d;text-align:center}
+.footnote{color:var(--muted);font-size:.75rem;text-align:center;opacity:.7}
+
+/* Swipe screen */
+#swipe{height:100dvh;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:0;background:var(--panel);font-size:20px;cursor:pointer;position:relative;display:grid;place-items:center;flex-shrink:0}
+.code-pill{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:10px 16px;cursor:pointer}
+.code-pill strong{letter-spacing:.2em}
+.code-label{color:var(--muted);font-size:.7rem;text-transform:uppercase;font-weight:700}
+.badge{position:absolute;top:-4px;right:-4px;background:var(--accent);color:#fff;font-size:.7rem;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;padding:0 5px}
+.subhead{text-align:center;color:var(--muted);font-size:.85rem}
+.deck{position:relative;flex:1;min-height:0}
+.actions{display:flex;justify-content:center;gap:32px;padding:4px 0}
+.round{width:68px;height:68px;border-radius:50%;font-size:28px;cursor:pointer;background:var(--panel);box-shadow:0 8px 20px rgba(0,0,0,.4);transition:transform .1s}
+.round:active{transform:scale(.9)}
+.round.nope{color:#ff4f7b;border:2px solid rgba(255,79,123,.45)}
+.round.like{color:#3dff9a;border:2px solid rgba(61,255,154,.45)}
